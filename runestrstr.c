@@ -7,23 +7,24 @@
  * or modification of this software and in all copies of the supporting
  * documentation for such software.
  * THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
- * WARRANTY.  IN PARTICULAR, NEITHER THE AUTHORS NOR LUCENT TECHNOLOGIES MAKE
- * ANY REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
+ * WARRANTY.  IN PARTICULAR, NEITHER THE AUTHORS NOR LUCENT TECHNOLOGIES MAKE ANY
+ * REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
  * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 #include <stdarg.h>
 #include <string.h>
-#include "plan9.h"
 #include "utf.h"
+#include "utfdef.h"
 
 /*
  * Return pointer to first occurrence of s2 in s1,
  * 0 if none
  */
+const
 Rune*
-runestrstr(Rune *s1, Rune *s2)
+runestrstr(const Rune *s1, const Rune *s2)
 {
-	Rune *p, *pa, *pb;
+	const Rune *p, *pa, *pb;
 	int c0, c;
 
 	c0 = *s2;

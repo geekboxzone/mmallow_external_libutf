@@ -7,17 +7,18 @@
  * or modification of this software and in all copies of the supporting
  * documentation for such software.
  * THIS SOFTWARE IS BEING PROVIDED "AS IS", WITHOUT ANY EXPRESS OR IMPLIED
- * WARRANTY.  IN PARTICULAR, NEITHER THE AUTHORS NOR LUCENT TECHNOLOGIES MAKE
- * ANY REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
+ * WARRANTY.  IN PARTICULAR, NEITHER THE AUTHORS NOR LUCENT TECHNOLOGIES MAKE ANY
+ * REPRESENTATION OR WARRANTY OF ANY KIND CONCERNING THE MERCHANTABILITY
  * OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
  */
 #include <stdarg.h>
 #include <string.h>
-#include "plan9.h"
 #include "utf.h"
+#include "utfdef.h"
 
+const
 Rune*
-runestrchr(Rune *s, Rune c)
+runestrchr(const Rune *s, Rune c)
 {
 	Rune c0 = c;
 	Rune c1;
@@ -28,7 +29,7 @@ runestrchr(Rune *s, Rune c)
 		return s-1;
 	}
 
-	while(c1 = *s++)
+	while((c1 = *s++) != 0)
 		if(c1 == c0)
 			return s-1;
 	return 0;
